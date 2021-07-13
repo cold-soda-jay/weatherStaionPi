@@ -53,6 +53,7 @@ class Utility:
         except:
             return 'NaN', 'NaN', 'NaN'
 
+
     def get_home(self):
         dht = ada.DHT11(PIN)
         try:
