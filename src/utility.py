@@ -1,7 +1,7 @@
 import bs4
 import requests
 import re
-from fake_useragent import UserAgent
+from datetime import date
 
 
 try:
@@ -37,9 +37,9 @@ class Utility:
 
     def get_weather_google(self):
         try:
-            ua = UserAgent()
+            #ua = UserAgent()
             
-            header = {"User-Agent":ua.random,
+            header = {#"User-Agent":ua.random,
                         "cookie": COOKIE,
                         "x-client-data": "CI+2yQEIpLbJAQjEtskBCKmdygEIjuXKAQjQmssBCKCgywEIrfLLAQjc8ssBCO/yywEIs/jLAQie+csBCPX5ywEYjp7LARi68ssBGN/5ywE="}
 
@@ -73,8 +73,10 @@ class Utility:
         
 
     def load_weather(self):
+        today = date.today()
+        day = today.strftime("%d-%m-%Y")
         try:
-            with open("data.txt", "r") as f:
+            with open(f"../data/data_{day}.txt", "r") as f:
                 line = f.readlines()[-1]
                 out_temp, weather_icon, out_humm, in_temp, in_humm = line.split(",")
         except :

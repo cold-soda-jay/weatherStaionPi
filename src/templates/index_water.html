@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{my_title}}</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+  <meta http-equiv="refresh" content="60">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+
+    html,
+    body {
+      height: 100%
+    }
+
+    * {
+      padding: 0px;
+      margin: 0px
+    }
+
+    body {
+      background-color: #000000;
+      display: grid;
+      place-items: center
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 50px;
+      color: #6f707d;
+      font-family: 'Marcellus', serif
+    }
+
+    #heading {
+      font-size: 35px;
+      color: #2b304d
+    }
+
+    .temp {
+      place-items: center
+    }
+
+    .temp-details>p>span,
+    .grey {
+      color: #a3acc1;
+      font-size: 12px
+    }
+
+    .fa {
+      color: #a5a5b1
+    }
+
+    *:focus {
+      outline: none
+    }
+
+    .wn-icon {
+      width: 25px;
+      height: 25px;
+      filter: invert(100%)
+    }
+
+    .w-icon {
+      width: 25px;
+      height: 25px;
+      
+    }
+
+    .gif {
+      width: 45px;
+      height: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div align="center">
+    <br>
+    <br>
+    <br>
+    <br>
+    <nobr>
+      <h1>
+        <h2 style="float:left" id="heading">
+          <p style="float:left"> &emsp; &emsp;
+            <font color="grey">Outside </font>
+          </p>
+          <br>
+          <br>
+          <p style="float:left"> &emsp; &emsp;
+            <img src={{weather_icon}} class="wn-icon">
+            <font color="white">{{out_temp}}° C </font>
+
+          </p>
+          <br>
+          <br>
+          <p style="float:left"> &emsp; &emsp;
+            <img src="{{ url_for('static',filename='image/humidity.svg') }}"
+              class="wn-icon">
+            <font color="white">{{out_humm}}% </font>
+
+          </p>
+        </h2>
+        <!-- 
+          <h2 style="float:center">
+          <img src="{{ url_for('static',filename='image/gaga.gif') }}"
+              style="zoom: 50%">
+        </h2>
+      -->
+
+
+        <h2 style="float:right" id="heading">
+          <p style="float:right">
+            <font color="grey">Home &emsp; &emsp; &emsp;</font>
+          </p>
+          <br>
+          <br>
+          <p style="float:right">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Home_free_icon.svg" class="wn-icon">
+
+            <font color="white">{{in_temp}}° C </font> &emsp; &emsp; &emsp;
+          </p>
+          <br>
+          <br>
+          <p style="float:right">
+            <img src="{{ url_for('static',filename='image/humidity.svg') }}"
+              class="wn-icon">
+            <font color="white">{{in_humm}}% &emsp; &emsp; &emsp;</font>
+
+          </p>
+        </h2>
+
+      </h1>
+    </nobr>
+    <br>
+
+    <h1 id="app"></h1>
+
+  </div>
+
+  <script src='https://npmcdn.com/react@15.3.0/dist/react.min.js'></script>
+  <script src='https://npmcdn.com/react-dom@15.3.0/dist/react-dom.min.js'></script>
+
+  <script src="{{ url_for('static',filename='js/index.js') }}"></script>
+
+</body>
+
+</html>

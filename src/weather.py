@@ -3,6 +3,7 @@ app = Flask(__name__)
 from utility import *
 import os, time
 
+
 ut = Utility()
 
 @app.route('/')
@@ -11,7 +12,7 @@ def index():
     out_temp, weather_icon, out_humm, in_temp, in_humm = ut.load_weather()
     
     return render_template('index.html',
-                            my_title = TITLE,
+                            title = TITLE,
                             out_temp = out_temp,
                             in_temp =  in_temp,
                             out_humm = out_humm,
